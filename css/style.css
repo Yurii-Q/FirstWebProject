@@ -99,7 +99,7 @@ body {
 
 .slider {
   padding: 0 0 10px 0;
-  min-height: 600px;
+  min-height: 30vw;
   overflow: hidden;
   position: relative;
   border-radius: 10px;
@@ -226,6 +226,239 @@ body {
   }
 }
 
+#label-left, #label-right, #label-up, #label-down {
+  background: rgba(238, 238, 238, 0.2);
+  border-radius: 50%;
+  max-width: 50px;
+  max-height: 50px;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+}
+#label-left img, #label-right img, #label-up img, #label-down img {
+  max-height: 50px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+#label-left {
+  left: 0;
+}
+
+#label-right {
+  right: 0;
+}
+
+#label-up {
+  left: 30%;
+}
+
+#label-down {
+  right: 30%;
+}
+
+.slider4__btn-left {
+  transform: rotate(180deg);
+}
+
+.slider4__btn-up {
+  transform: rotate(-90deg);
+}
+
+.slider4__btn-down {
+  transform: rotate(90deg);
+}
+
+.s4-btn:hover {
+  background: rgba(179, 156, 185, 0.7);
+}
+
+.s4-btn:active {
+  background: #875394;
+}
+
+#input-left, #input-right, #input-up, #input-down {
+  display: none;
+}
+
+#label-left, #label-right, #label-up, #label-down {
+  border-radius: 50%;
+}
+
+@keyframes slider4-left {
+  0% {
+    transform: translate(0, 0);
+  }
+  15% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  24% {
+    transform: translate(-100%, 0);
+    opacity: 0;
+    z-index: 1;
+  }
+  25% {
+    z-index: 0;
+    opacity: 1;
+  }
+  76% {
+    transform: translate(-100%, 0);
+  }
+  77% {
+    transform: translate(0, 0);
+  }
+  99% {
+    z-index: 0;
+  }
+  100% {
+    z-index: 1;
+  }
+}
+@keyframes slider4-right {
+  0% {
+    transform: translate(0, 0);
+  }
+  15% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  24% {
+    transform: translate(100%, 0);
+    opacity: 0;
+    z-index: 1;
+  }
+  25% {
+    z-index: 0;
+    opacity: 1;
+  }
+  76% {
+    transform: translate(100%, 0);
+  }
+  77% {
+    transform: translate(0, 0);
+  }
+  99% {
+    z-index: 0;
+  }
+  100% {
+    z-index: 1;
+  }
+}
+@keyframes slider4-up {
+  0% {
+    transform: translate(0, 0);
+  }
+  15% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  24% {
+    transform: translate(0, -100%);
+    opacity: 0;
+    z-index: 1;
+  }
+  25% {
+    z-index: 0;
+    opacity: 1;
+  }
+  76% {
+    transform: translate(0, -100%);
+  }
+  77% {
+    transform: translate(0, 0);
+  }
+  99% {
+    z-index: 0;
+  }
+  100% {
+    z-index: 1;
+  }
+}
+@keyframes slider4-down {
+  0% {
+    transform: translate(0, 0);
+  }
+  15% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  24% {
+    transform: translate(0, 100%);
+    opacity: 0;
+    z-index: 1;
+  }
+  25% {
+    z-index: 0;
+    opacity: 1;
+  }
+  76% {
+    transform: translate(0, 100%);
+  }
+  77% {
+    transform: translate(0, 0);
+  }
+  99% {
+    z-index: 0;
+  }
+  100% {
+    z-index: 1;
+  }
+}
+.slider4__img .slide__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-name: slider4-right;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.slider4__img .slide__img:nth-child(8) {
+  animation-delay: 0s;
+}
+.slider4__img .slide__img:nth-child(7) {
+  animation-delay: 5s;
+}
+.slider4__img .slide__img:nth-child(6) {
+  animation-delay: 10s;
+}
+.slider4__img .slide__img:nth-child(5) {
+  animation-delay: 15s;
+}
+
+#input-left:checked ~ *.slide__img {
+  animation-name: slider4-left;
+}
+
+#input-left:checked ~ #label-left {
+  background: rgba(179, 156, 185, 0.7);
+}
+
+#input-right:checked ~ *.slide__img {
+  animation-name: slider4-right;
+}
+
+#input-right:checked ~ #label-right {
+  background: rgba(179, 156, 185, 0.7);
+}
+
+#input-up:checked ~ *.slide__img {
+  animation-name: slider4-up;
+}
+
+#input-up:checked ~ #label-up {
+  background: rgba(179, 156, 185, 0.7);
+}
+
+#input-down:checked ~ *.slide__img {
+  animation-name: slider4-down;
+}
+
+#input-down:checked ~ #label-down {
+  background: rgba(179, 156, 185, 0.7);
+}
+
 .item__column {
   display: flex;
   flex-direction: column;
@@ -252,14 +485,6 @@ body {
   transition: 0.5s;
 }
 
-@keyframes anim-title {
-  0% {
-    font-size: 20px;
-  }
-  100% {
-    font-size: 30px;
-  }
-}
 .item__image {
   display: flex;
   justify-content: center;
